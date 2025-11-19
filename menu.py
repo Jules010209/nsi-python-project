@@ -1,6 +1,6 @@
 from index import *
 
-print("Menu :")
+print("===== Menu utilisateur =====")
 print("0: Quitter")
 print("1: Ajouter des élèves")
 print("2: Modifier le nom d'un élève")
