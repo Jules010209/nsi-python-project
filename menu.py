@@ -12,7 +12,7 @@ commandKey = int(input("Quelle touche voulez-vous utiliser ? "))
 
 match commandKey:
     case 0:
-        exit
+        exit()
     case 1:
         nbStudent = int(input("Combien d'eleves voulez-vous ajouter ? "))
 
