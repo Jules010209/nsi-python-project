@@ -18,6 +18,8 @@ def editStudentName(id: int, newName: str):
         if i == id:
             db[i]["name"] = newName
             break
+        else:
+            raise ValueError("L'élève n'existe pas")
 
 
 # Delete student by name
@@ -47,6 +49,15 @@ def editNotes(name: str, notes: dict):
                 db[i]["notes"][subject] = notes[subject]
             break
 
+
+def number(arg):
+    try:
+        return int(arg)
+    except ValueError:
+        try:
+            float(arg)
+        except ValueError:
+            print("This is not a number")
 
 # actions
 

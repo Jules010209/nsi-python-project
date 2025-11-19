@@ -16,14 +16,17 @@ match commandKey:
     case 1:
         nbStudent = int(input("Combien d'eleves voulez-vous ajouter ? "))
 
-        for i in range(nbStudent):
+        for _ in range(nbStudent):
             name = input("Entrez le nom et le prénom de l'élève : ")
             addStudent(name, None)
     case 2:
         studentId = int(input("Entrez l'identifiant de l'élève : "))
         newName = input("Entrez le nouveau nom de l'élève : ")
 
-        editStudentName(studentId, newName)
+        try:
+            editStudentName(studentId, newName)
+        except ValueError as e:
+            print(e)
     case 3:
         addNotes(None, None)
     case 4:
