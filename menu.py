@@ -8,7 +8,7 @@ print("3: Ajouter les notes d'un élève")
 print("4: Modifier les notes d'un élève")
 print("5: Supprimer un élève")
 
-commandKey = int(input("Qu'elle touche voulez vous-utiliser ? "))
+commandKey = int(input("Quelle touche voulez-vous utiliser ? "))
 
 match commandKey:
     case 0:
@@ -29,6 +29,13 @@ match commandKey:
     case 4:
         editNotes(None, None)
     case 5:
-        deleteStudent(None)
+        studentName = input("Entrez le nom de l'élève à supprimer : ")
+
+        try:
+            deleteStudent(studentName)
+
+            print(f"L'élève {studentName} a bien été supprimé.")
+        except ValueError as e:
+            print(e)
     case _:
-        print("Vous avez pas utilisé un chiffre entre 0-5")
+        print("Vous n'avez pas utilisé un chiffre entre 0 et 5")
