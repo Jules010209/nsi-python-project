@@ -1,6 +1,7 @@
 from index import *
 
 # Exemple de db pour les tests
+# Base de donée
 db = [
     {"name": "A", "notes": {"FR": [2, 4], "EN": [3, 5], "PE": [1, 6]}},
     {"name": "B", "notes": {"FR": [3, 4], "EN": [2, 5], "PE": [4, 6]}},
