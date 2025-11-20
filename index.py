@@ -1,53 +1,52 @@
-db = [
-    {"name": "A", "notes": {"FR": [2, 4], "EN": [3, 5], "PE": [1, 6]}},
-    {"name": "B", "notes": {"FR": [3, 4], "EN": [2, 5], "PE": [4, 6]}},
-    {"name": "C", "notes": {"FR": [5, 4], "EN": [3, 1], "PE": [2, 6]}},
-]
-
-
-# Add student with name and notes (if notes is None, create empty notes)
-def addStudent(name: str, notes: dict):
+# Ajouter un élève avec un nom et des notes (si les notes sont None, créer des notes vides)
+def addStudent(name, notes, db):
     basicNotes = {"FR": [], "EN": [], "PE": []}
 
     db.append({"name": name, "notes": notes if notes else basicNotes})
 
 
-# Edit student name by id (index in db)
-def editStudentName(id: int, newName: str):
+# Changer le nom d'un élève par son identifiant
+def editStudentName(id, newName, db):
     for i in range(len(db)):
         if i == id:
             db[i]["name"] = newName
             break
         else:
-            raise ValueError("L'élève n'existe pas")
+            raise ValueError("Nom personne inexistante dans le répertoire")
 
 
-# Delete student by name
-def deleteStudent(name: str):
+# Supprimer un élève par son nom
+def deleteStudent(name, db):
     for i in range(len(db)):
         if db[i]["name"] == name:
             del db[i]
             break
         else:
-            raise ValueError("L'élève n'existe pas")
+            raise ValueError("Nom personne inexistante dans le répertoire")
 
 
-# Add notes to student by name
-def addNotes(name: str, notes: dict):
-    for i in range(len(db)):
-        if db[i]["name"] == name:
-            for subject in notes:
-                db[i]["notes"][subject].extend(notes[subject])
-            break
+# Ajouter des notes à un élève par son nom
+def addNotes(name, notes, db):
+    try:
+        for i in range(len(db)):
+            if db[i]["name"] == name:
+                for subject in notes:
+                    db[i]["notes"][subject].extend(notes[subject])
+                break
+    except ValueError:
+        print("Nom personne inexistante dans le répertoire")
 
 
-# Edit notes of student by name
-def editNotes(name: str, notes: dict):
-    for i in range(len(db)):
-        if db[i]["name"] == name:
-            for subject in notes:
-                db[i]["notes"][subject] = notes[subject]
-            break
+# Changer les notes d'un élève par son nom
+def editNotes(name, notes, db):
+    try:
+        for i in range(len(db)):
+            if db[i]["name"] == name:
+                for subject in notes:
+                    db[i]["notes"][subject] = notes[subject]
+                break
+    except ValueError:
+        print("Nom personne inexistante dans le répertoire")
 
 
 def number(arg):
