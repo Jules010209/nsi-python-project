@@ -1,3 +1,5 @@
+# Chenelat Jules
+
 # Ajouter un élève avec un nom et des notes (si les notes sont None, créer des notes vides)
 def addStudent(name, notes, db):
     basicNotes = {"FR": [], "EN": [], "PE": []}
@@ -48,13 +50,13 @@ def editNotes(name, notes, db):
     except ValueError:
         print("Nom personne inexistante dans le répertoire")
 
-
+# Vérifier si arg est un nombre ou un float
 def number(arg):
     try:
         return int(arg)
     except ValueError:
         try:
-            float(arg)
+            return float(arg)
         except ValueError:
             print("This is not a number")
 
